@@ -1,15 +1,16 @@
-# Simulação da pandemia do COVID-19 na cidade Igarassu.
-
-Repositório criado para o projeto de Simulação da pandemia do COVID-19 na cidade Igarassu, o cenário abordado foi o de Saúde excluisivamente privada - se não houvesse o SUS.
+# Simulação da pandemia do COVID-19 na cidade de Igarassu
 
 
-# Instituto Federal de Pernambuco / Igarassu.
-* Sistemas para Internet - 3° Período.
-* Disciplina: metodologia cientifica.
-* Professor: Allan Diego Silva Lima.
+Repositório criado para projeto de simulação da pandemia do COVID-19 na cidade de Igarassu, o cenário abordado foi: "Saúde excluisivamente privada (Se não houvesse SUS)".
 
 
-# Estudantes:
+# Instituto Federal de Pernambuco - Campus Igarassu
+* Sistemas para Internet - 3° Período
+* Disciplina: Metodologia Científica
+* Professor: Allan Diego Silva Lima
+
+
+# Estudantes
 * Desiree Fernandes;
 * Gleiciane Galdino;
 * Luan Umbelino;
