@@ -25,6 +25,9 @@ class State(enum.Enum):
 	sick = 1
 	dead = 2
 	immune = 3
+	hospital = 4
+	uti = 5
+	isolated = 6
 
 class Individual:
 	def __init__(self, state):
@@ -49,9 +52,20 @@ class RandomWalkModel:
 			[1.0, 0.0, 0.0, 0.0],
 			[0.059, 0.941, 0.0, 0.0],
 			[0.0021, 0.035, 0.0, 0.0],
+			[0.0, 0.0, 0.0, 0.0],
+			[0.0, 0.0, 0.0, 0.0],
 			[0.0, 0.0, 0.0, 0.0]
 			]
+		self.transitionProbabilitiesIsolated = [
+			[1.0, 0.0, 0.0, 0.0],
+			[0.059, 0.941, 0.0, 0.0],
+			[0.0021, 0.035, 0.0, 0.0],
+			[0.0, 0.0, 0.0, 0.0],
+			[0.0, 0.0, 0.0, 0.0],
+			[0.0, 0.0, 0.0, 0.0]
+		]
 		self.contagionFactor = 9.4 #0.0094 
+		self.isolated = 10
 
 		for i in range(populationMatrixSize):
 			self.population.append([])
@@ -79,6 +93,26 @@ class RandomWalkModel:
 			self.computeSocialInteractions(line, column)
 
 		# other states are handled as a state machine
+
+		if (individual.state == State.isolated):
+			probabilities = self.transitionProbabilities[individual.state.value]
+			number = random.random()
+
+			cumulativeProbability = 0
+			for index in range(len(probabilities)):
+				cumulativeProbability = cumulativeProbability + probabilities[index]
+					#print(cumulativeProbability, probabilities[j])
+					
+				if (number > 0.0 and number <= cumulativeProbability):
+					#print('transition from', self.population[index], 'to', State(j))
+
+					# debug code to warn if someone ressurects
+					if (individual.state == State.dead):
+						print("ERROR: DEATH TRANSITION ", number, cumulativeProbability, index, probabilities[index])
+
+					self.nextPopulation[line][column].state = State(index)
+					break
+
 		else:
 			probabilities = self.transitionProbabilities[individual.state.value]
 			number = random.random()
