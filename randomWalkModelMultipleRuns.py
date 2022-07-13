@@ -43,23 +43,34 @@ class RandomWalkModel:
         self.nextPopulation = []
         self.currentGeneration = 0
 
+        # a parte pelo todo
+        # população de PE = 9.674.793
+        # saudaveis = 9.173.259
+        # casos COVID-19 = 485.594
+        # paciente recuperados = 402.711
+        # mortos = 15.940
+        # uti's estaduais = 1739
+        # enfermarias estaduais = 1230
+        # uti's particulares = 484
+        # enfermarias particulares = 240
         #
         # 			    healthy		sick	dead	enfermaria 	uti	
         # healthy	    0.8			0.2     0.0		0.0		    0.0
         # sick		    0.0005		3.1     0.3	    3.9         2.7
-        # dead		    0.0021		0.035	0.0		0.10		0.94
-        # enfermaria	0.0			0.02	0.0		0.0		    0.0008
+        # dead		    0.0 		0.0     0.0		0.0         0.0
+        # enfermaria	0.0001		0.00002	0.0007	0.0		    0.007
 		# uti		    0.0			0.3		0.0		0.03		0.0
+        #http://covid19analytics.com.br/wp-content/uploads/2021/06/JG160621.mp4
 
         # notice how there is no transition from the healthy state
         self.transitionProbabilities = [
-            [1.0,		0.06, 	0.0, 	0.0002, 	0.00001],
-            [0.059,		0.941, 	0.0, 	0.54, 	0.03],
-            [0.0021, 	0.035, 	0.0, 	0.10, 	0.94],
-            [0.0, 		0.3, 	0.0,	0.03,	0.0],
-			[0.0, 		0.1, 	0.0,	0.0,	0.0]
+            [0.94,		0.052, 	0.0017, 	0.00013, 	0.00018],
+            [0.04,		0.14, 	0.032, 	    0.002, 	    0.003],
+            [0.0,    	0.0,	0.0, 	    0.0, 	    0.0],
+            [0.003, 	0.0025,	0.077,	    0.21,	    0.7],
+			[0.0043, 	0.003, 	0.1,	    1.4,	    1.0]
         ]
-        self.contagionFactor = 9.4  # 0.0094
+        self.contagionFactor = 1.2
 
         for i in range(populationMatrixSize):
             self.population.append([])
@@ -242,7 +253,7 @@ class RandomWalkModel:
 
 
 numberOfRuns = 1
-gridSize = 344
+gridSize = 3110
 numberOfGenerations = 24
 
 for i in range(0, numberOfRuns):
