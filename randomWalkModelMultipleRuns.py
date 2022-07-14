@@ -25,9 +25,8 @@ class State(enum.Enum):
     healthy = 0
     sick = 1
     dead = 2
-    immune = 3
-    enfermaria = 4
-    uti = 5
+    enfermaria = 3
+    uti = 4
 
 
 class Individual:
@@ -248,8 +247,6 @@ class RandomWalkModel:
                     img.putpixel((i, j), (256, 256, 0))
                 elif (self.population[i][j].state == State.dead):
                     img.putpixel((i, j), (256, 0, 0))
-                elif (self.population[i][j].state == State.immune):
-                    img.putpixel((i, j), (256, 0, 256))
                 elif (self.population[i][j].state == State.enfermaria):
                     img.putpixel((i, j), (0, 256, 256))
                 elif (self.population[i][j].state == State.uti):
@@ -261,7 +258,7 @@ class RandomWalkModel:
         # img.show()
 
 
-numberOfRuns = 1
+numberOfRuns = 100
 gridSize = 3110
 numberOfGenerations = 24
 
