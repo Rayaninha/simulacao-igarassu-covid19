@@ -49,17 +49,26 @@ class RandomWalkModel:
         # casos COVID-19 = 485.594
         # paciente recuperados = 402.711
         # mortos = 15.940
-        # uti's estaduais = 1739
-        # enfermarias estaduais = 1230
-        # uti's particulares = 484
-        # enfermarias particulares = 240
+        # uti's estaduais = 1739/ 1.686
+        # enfermarias estaduais = 1230/ 1045
+        # uti's particulares = 484/ 390
+        # enfermarias particulares = 240/ 163
         #
+        # estadual
         # 			    healthy		sick	dead	enfermaria 	uti	
-        # healthy	    0.8			0.2     0.0		0.0		    0.0
-        # sick		    0.0005		3.1     0.3	    3.9         2.7
+        # healthy	    0.94		0.052   0.0017	0.00013		0.00018
+        # sick		    0.04		0.14    0.032   0.002       0.003
         # dead		    0.0 		0.0     0.0		0.0         0.0
-        # enfermaria	0.0001		0.00002	0.0007	0.0		    0.007
-		# uti		    0.0			0.3		0.0		0.03		0.0
+        # enfermaria	0.0025		0.002	0.065	0.84		0.6
+		# uti		    0.0043		0.003	0.1		1.3		    0.9
+        #
+        # particular
+        # 			    healthy		sick	dead	enfermaria 	uti	
+        # healthy	    0.94		0.052   0.0017	0.00013		0.00018
+        # sick		    0.04		0.14    0.032   0.002       0.003
+        # dead		    0.0 		0.0     0.0		0.0         0.0
+        # enfermaria	0.0004		0.0003	0.01	0.67		0.33
+		# uti		    0.0009		0.0008	0.02	1.6		    0.8
         #http://covid19analytics.com.br/wp-content/uploads/2021/06/JG160621.mp4
 
         # notice how there is no transition from the healthy state
@@ -67,8 +76,8 @@ class RandomWalkModel:
             [0.94,		0.052, 	0.0017, 	0.00013, 	0.00018],
             [0.04,		0.14, 	0.032, 	    0.002, 	    0.003],
             [0.0,    	0.0,	0.0, 	    0.0, 	    0.0],
-            [0.003, 	0.0025,	0.077,	    0.21,	    0.7],
-			[0.0043, 	0.003, 	0.1,	    1.4,	    1.0]
+            [0.0025, 	0.002,	0.065,	    0.84,	    0.6],
+			[0.0043, 	0.003, 	0.1,	    1.3,	    0.9]
         ]
         self.contagionFactor = 1.2
 
